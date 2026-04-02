@@ -4,7 +4,8 @@ WORKDIR /app
 COPY pom.xml ./
 COPY src ./src
 
-RUN mvn -q -DskipTests package
+RUN mkdir -p /app/target && \
+    mvn -q -DskipTests package
 
 FROM cgr.dev/chainguard/jre:latest
 WORKDIR /app
