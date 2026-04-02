@@ -9,7 +9,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - pgdata:/var/lib/postgresql/data
+      - ./data/database/postgres:/var/lib/postgresql/data
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U minhavisita -d minhavisita"]
       interval: 10s
@@ -33,9 +33,7 @@ services:
       SPRING_JPA_HIBERNATE_DDL_AUTO: update
       SPRING_H2_CONSOLE_ENABLED: "false"
       LOGGING_LEVEL_ORG_HIBERNATE_SQL: info
+      APP_CORS_ALLOWED_ORIGIN_PATTERNS: http://localhost:*,http://127.0.0.1:*,http://34.95.224.29,https://34.95.224.29
     ports:
       - "8081:8081"
     restart: unless-stopped
-
-volumes:
-  pgdata:

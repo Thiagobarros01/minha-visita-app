@@ -106,8 +106,23 @@ curl -X POST http://localhost:8081/api/checkins/1/checkout \
 
 ## Banco
 
-Por padrao fora do Docker usa H2 em arquivo local (`./data/minhavisita`).
-No Docker Compose, o backend usa PostgreSQL via variaveis de ambiente.
+Por padrao fora do Docker usa H2 em arquivo local (`./data/database/minhavisita`).
+No Docker Compose, o PostgreSQL fica persistido em `./data/database/postgres`.
+
+## CORS e IP publico
+
+O backend ja permite por padrao:
+
+- `http://localhost:*`
+- `http://127.0.0.1:*`
+- `http://34.95.224.29`
+- `https://34.95.224.29`
+
+Para sobrescrever origens permitidas, use a variavel:
+
+```bash
+APP_CORS_ALLOWED_ORIGIN_PATTERNS=http://localhost:*,http://127.0.0.1:*,http://34.95.224.29,https://34.95.224.29
+```
 
 ## Observacao sobre login
 

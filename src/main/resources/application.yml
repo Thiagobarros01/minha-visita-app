@@ -1,9 +1,13 @@
 ﻿server:
   port: ${SERVER_PORT:8081}
 
+app:
+  cors:
+    allowed-origin-patterns: ${APP_CORS_ALLOWED_ORIGIN_PATTERNS:http://localhost:*,http://127.0.0.1:*,http://34.95.224.29,https://34.95.224.29}
+
 spring:
   datasource:
-    url: ${SPRING_DATASOURCE_URL:jdbc:h2:file:./data/minhavisita;MODE=PostgreSQL;AUTO_SERVER=TRUE;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE}
+    url: ${SPRING_DATASOURCE_URL:jdbc:h2:file:./data/database/minhavisita;MODE=PostgreSQL;DB_CLOSE_DELAY=-1}
     driverClassName: ${SPRING_DATASOURCE_DRIVER_CLASS_NAME:org.h2.Driver}
     username: ${SPRING_DATASOURCE_USERNAME:sa}
     password: ${SPRING_DATASOURCE_PASSWORD:}
