@@ -24,11 +24,18 @@ void main() {
 }
 
 String resolveApiBaseUrl() {
+  // Para desenvolvimento local com emulator Android: 10.0.2.2:8080
+  // Para GCP/produção: 34.95.224.29:8080
+  // Para mudar, edite a constante abaixo:
+  
+  const String GCP_IP = '34.95.224.29'; // Mude aqui para usar outro IP
+  
   if (kIsWeb) {
     return 'http://localhost:8080';
   }
   if (defaultTargetPlatform == TargetPlatform.android) {
-    return 'http://10.0.2.2:8080';
+    // Use o IP do GCP para device físico, ou 10.0.2.2 para emulator
+    return 'http://$GCP_IP:8080';
   }
   return 'http://localhost:8080';
 }
