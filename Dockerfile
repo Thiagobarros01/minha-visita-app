@@ -1,13 +1,12 @@
-FROM cgr.dev/chainguard/maven:latest-dev AS build
+FROM maven:3.9-eclipse-temurin-21-alpine AS build
 WORKDIR /app
 
 COPY pom.xml ./
 COPY src ./src
 
-RUN mkdir -p /app/target && \
-    mvn -q -DskipTests package
+RUN mvn -q -DskipTests package
 
-FROM cgr.dev/chainguard/jre:latest
+FROM eclipse-temurin:21-jre-alpine
 WORKDIR /app
 
 COPY --from=build /app/target/*.jar app.jar
