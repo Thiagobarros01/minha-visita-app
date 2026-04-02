@@ -1,4 +1,4 @@
-﻿package br.com.minhavisita.service;
+package br.com.minhavisita.service;
 
 public class UnauthorizedException extends RuntimeException {
   public UnauthorizedException(String message) {

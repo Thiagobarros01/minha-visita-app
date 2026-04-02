@@ -1,4 +1,4 @@
-﻿package br.com.minhavisita.web;
+package br.com.minhavisita.web;
 
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -30,7 +30,11 @@ public class AuthController {
   public LoginResponse login(@Valid @RequestBody LoginRequest request) {
     String token = authService.login(request.email(), request.senha());
     Usuario usuario = usuarioService.buscarPorEmail(request.email());
-    UsuarioResponse usuarioResponse = new UsuarioResponse(usuario.getId(), usuario.getNome(), usuario.getEmail());
+    UsuarioResponse usuarioResponse = new UsuarioResponse(
+        usuario.getId(),
+        usuario.getNome(),
+        usuario.getEmail(),
+        usuario.getPerfil());
     return new LoginResponse(token, usuarioResponse);
   }
 }

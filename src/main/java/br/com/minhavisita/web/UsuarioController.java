@@ -1,4 +1,4 @@
-﻿package br.com.minhavisita.web;
+package br.com.minhavisita.web;
 
 import java.util.List;
 
@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.minhavisita.domain.PerfilUsuario;
 import br.com.minhavisita.domain.Usuario;
 import br.com.minhavisita.service.UsuarioService;
 import br.com.minhavisita.web.dto.CreateUsuarioRequest;
@@ -33,6 +34,7 @@ public class UsuarioController {
     Usuario usuario = new Usuario();
     usuario.setNome(request.nome());
     usuario.setEmail(request.email());
+    usuario.setPerfil(request.perfil() == null ? PerfilUsuario.OPERADOR : request.perfil());
     return toResponse(usuarioService.criar(usuario, request.senha()));
   }
 
@@ -42,6 +44,6 @@ public class UsuarioController {
   }
 
   private UsuarioResponse toResponse(Usuario usuario) {
-    return new UsuarioResponse(usuario.getId(), usuario.getNome(), usuario.getEmail());
+    return new UsuarioResponse(usuario.getId(), usuario.getNome(), usuario.getEmail(), usuario.getPerfil());
   }
 }

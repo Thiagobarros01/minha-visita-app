@@ -1,4 +1,4 @@
-﻿package br.com.minhavisita.repository;
+package br.com.minhavisita.repository;
 
 import java.time.OffsetDateTime;
 import java.util.List;

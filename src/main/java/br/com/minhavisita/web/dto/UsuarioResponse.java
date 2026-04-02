@@ -1,7 +1,10 @@
-﻿package br.com.minhavisita.web.dto;
+package br.com.minhavisita.web.dto;
+
+import br.com.minhavisita.domain.PerfilUsuario;
 
 public record UsuarioResponse(
     Long id,
     String nome,
-    String email
+    String email,
+    PerfilUsuario perfil
 ) {}

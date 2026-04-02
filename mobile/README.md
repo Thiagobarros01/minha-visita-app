@@ -4,6 +4,14 @@ App simples para login + check-in/check-out com geolocalizacao.
 
 ## Como rodar
 
+Antes de abrir o Flutter, suba o backend na raiz do projeto:
+
+```powershell
+mvn spring-boot:run
+```
+
+Depois rode o app mobile em outro terminal:
+
 ```bash
 flutter create .
 flutter pub get
@@ -15,11 +23,11 @@ flutter run
 No `mobile/lib/main.dart` ajuste:
 
 ```
-final _api = ApiClient('http://10.0.2.2:8080');
+final _api = ApiClient('http://10.0.2.2:8081');
 ```
 
-- Android Emulator: `10.0.2.2`
-- iOS Simulator: `http://localhost:8080`
+- Android Emulator: `10.0.2.2:8081`
+- iOS Simulator: `http://localhost:8081`
 - Dispositivo fisico: IP da sua maquina na rede local
 
 ## Permissoes de localizacao

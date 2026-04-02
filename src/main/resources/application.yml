@@ -1,15 +1,18 @@
 ﻿server:
-  port: 8080
+  port: ${SERVER_PORT:8081}
 
 spring:
   datasource:
-    url: jdbc:h2:mem:minhavisita;MODE=PostgreSQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
-    driverClassName: org.h2.Driver
-    username: sa
-    password: ''
+    url: ${SPRING_DATASOURCE_URL:jdbc:h2:file:./data/minhavisita;MODE=PostgreSQL;AUTO_SERVER=TRUE;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE}
+    driverClassName: ${SPRING_DATASOURCE_DRIVER_CLASS_NAME:org.h2.Driver}
+    username: ${SPRING_DATASOURCE_USERNAME:sa}
+    password: ${SPRING_DATASOURCE_PASSWORD:}
+  h2:
+    console:
+      enabled: ${SPRING_H2_CONSOLE_ENABLED:false}
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: ${SPRING_JPA_HIBERNATE_DDL_AUTO:update}
     properties:
       hibernate:
         format_sql: true
@@ -17,4 +20,4 @@ spring:
 
 logging:
   level:
-    org.hibernate.SQL: debug
+    org.hibernate.SQL: ${LOGGING_LEVEL_ORG_HIBERNATE_SQL:info}

@@ -1,4 +1,4 @@
-﻿package br.com.minhavisita.service;
+package br.com.minhavisita.service;
 
 import java.util.UUID;
 

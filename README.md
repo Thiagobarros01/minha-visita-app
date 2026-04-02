@@ -4,11 +4,45 @@ MVP backend para check-in/check-out por geolocalizacao.
 
 ## Como rodar
 
+Execute este comando na raiz do projeto, onde fica o `pom.xml`:
+
 ```powershell
 mvn spring-boot:run
 ```
 
-O servidor sobe em `http://localhost:8080`.
+O servidor sobe em `http://localhost:8081`.
+
+Depois, rode o app Flutter em `mobile/` para consumir essa API.
+
+## Rodar com Docker Compose (backend + banco)
+
+Na raiz do projeto:
+
+```powershell
+docker compose up -d --build
+```
+
+Isso sobe:
+
+- `backend` (Spring Boot) em `http://localhost:8081`
+- `db` (PostgreSQL) em `localhost:5432`
+
+Comandos uteis:
+
+```powershell
+# ver status
+docker compose ps
+
+# ver logs
+docker compose logs -f backend
+docker compose logs -f db
+
+# parar mantendo dados do banco
+docker compose down
+
+# parar removendo volume (zera banco)
+docker compose down -v
+```
 
 ## Endpoints principais
 
@@ -24,19 +58,19 @@ O servidor sobe em `http://localhost:8080`.
 ## Exemplo rapido (curl)
 
 ```bash
-curl -X POST http://localhost:8080/api/usuarios \
+curl -X POST http://localhost:8081/api/usuarios \
   -H "Content-Type: application/json" \
   -d '{"nome":"Joao","email":"joao@exemplo.com","senha":"123456"}'
 ```
 
 ```bash
-curl -X POST http://localhost:8080/auth/login \
+curl -X POST http://localhost:8081/auth/login \
   -H "Content-Type: application/json" \
   -d '{"email":"joao@exemplo.com","senha":"123456"}'
 ```
 
 ```bash
-curl -X POST http://localhost:8080/api/visitas \
+curl -X POST http://localhost:8081/api/visitas \
   -H "Content-Type: application/json" \
   -d '{
     "usuarioId":1,
@@ -50,7 +84,7 @@ curl -X POST http://localhost:8080/api/visitas \
 ```
 
 ```bash
-curl -X POST http://localhost:8080/api/checkins \
+curl -X POST http://localhost:8081/api/checkins \
   -H "Content-Type: application/json" \
   -d '{
     "visitaId":1,
@@ -61,7 +95,7 @@ curl -X POST http://localhost:8080/api/checkins \
 ```
 
 ```bash
-curl -X POST http://localhost:8080/api/checkins/1/checkout \
+curl -X POST http://localhost:8081/api/checkins/1/checkout \
   -H "Content-Type: application/json" \
   -d '{
     "latitude":-23.5506,
@@ -72,7 +106,8 @@ curl -X POST http://localhost:8080/api/checkins/1/checkout \
 
 ## Banco
 
-Por padrao usa H2 em memoria. Para Postgres, ajuste `spring.datasource.*` em `src/main/resources/application.yml`.
+Por padrao fora do Docker usa H2 em arquivo local (`./data/minhavisita`).
+No Docker Compose, o backend usa PostgreSQL via variaveis de ambiente.
 
 ## Observacao sobre login
 

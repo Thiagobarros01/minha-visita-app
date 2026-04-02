@@ -1,4 +1,4 @@
-﻿package br.com.minhavisita.service;
+package br.com.minhavisita.service;
 
 public class NotFoundException extends RuntimeException {
   public NotFoundException(String message) {

@@ -1,4 +1,4 @@
-﻿package br.com.minhavisita.web.dto;
+package br.com.minhavisita.web.dto;
 
 import java.time.OffsetDateTime;
 

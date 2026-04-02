@@ -1,4 +1,4 @@
-﻿package br.com.minhavisita.web;
+package br.com.minhavisita.web;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;

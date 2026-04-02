@@ -1,0 +1,41 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: minhavisita-db
+    environment:
+      POSTGRES_DB: minhavisita
+      POSTGRES_USER: minhavisita
+      POSTGRES_PASSWORD: minhavisita
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U minhavisita -d minhavisita"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: minhavisita-backend
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      SERVER_PORT: 8081
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/minhavisita
+      SPRING_DATASOURCE_DRIVER_CLASS_NAME: org.postgresql.Driver
+      SPRING_DATASOURCE_USERNAME: minhavisita
+      SPRING_DATASOURCE_PASSWORD: minhavisita
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      SPRING_H2_CONSOLE_ENABLED: "false"
+      LOGGING_LEVEL_ORG_HIBERNATE_SQL: info
+    ports:
+      - "8081:8081"
+    restart: unless-stopped
+
+volumes:
+  pgdata:

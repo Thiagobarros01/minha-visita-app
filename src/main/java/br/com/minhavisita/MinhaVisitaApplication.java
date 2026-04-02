@@ -1,4 +1,4 @@
-﻿package br.com.minhavisita;
+package br.com.minhavisita;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

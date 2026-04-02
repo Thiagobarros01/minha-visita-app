@@ -1,4 +1,4 @@
-﻿package br.com.minhavisita.domain;
+package br.com.minhavisita.domain;
 
 public enum VisitaStatus {
   AGENDADA,

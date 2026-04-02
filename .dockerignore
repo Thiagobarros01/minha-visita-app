@@ -1,0 +1,16 @@
+target/
+mobile/
+.git/
+.idea/
+.vscode/
+*.iml
+*.log
+data/
+.env
+.env.*
+README.md
+**/.DS_Store
+**/Thumbs.db
+**/.dart_tool/
+**/build/
+**/coverage/

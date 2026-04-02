@@ -1,4 +1,4 @@
-﻿package br.com.minhavisita.domain;
+package br.com.minhavisita.domain;
 
 import java.time.OffsetDateTime;
 

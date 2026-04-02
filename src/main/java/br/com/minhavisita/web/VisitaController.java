@@ -1,4 +1,4 @@
-﻿package br.com.minhavisita.web;
+package br.com.minhavisita.web;
 
 import java.time.LocalDate;
 import java.util.List;

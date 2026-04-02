@@ -1,4 +1,4 @@
-﻿package br.com.minhavisita.service;
+package br.com.minhavisita.service;
 
 public final class GeoUtils {
   private static final double RAIO_TERRA_METROS = 6371000.0;

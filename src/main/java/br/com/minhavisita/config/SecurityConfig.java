@@ -1,4 +1,4 @@
-﻿package br.com.minhavisita.config;
+package br.com.minhavisita.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

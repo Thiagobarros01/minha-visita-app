@@ -1,0 +1,34 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.iml
+
+# Logs
+*.log
+logs/
+
+# Java / Maven / Spring
+target/
+.mvn/
+!.mvn/wrapper/maven-wrapper.jar
+
+# Local database / runtime state
+data/
+*.mv.db
+*.trace.db
+
+# Environment and local overrides
+.env
+.env.*
+!.env.example
+
+# Flutter / Dart (workspace-level)
+mobile/.dart_tool/
+mobile/build/
+mobile/.flutter-plugins
+mobile/.flutter-plugins-dependencies
+mobile/.pub-cache/
+mobile/.pub/
+mobile/coverage/
