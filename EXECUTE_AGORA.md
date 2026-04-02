@@ -3,7 +3,7 @@
 ## Copie e cole isto NO TERMINAL (uma única linha):
 
 ```bash
-git pull && docker-compose down -v && mkdir -p data/database && docker-compose build && docker-compose up -d && sleep 30 && docker-compose ps && curl http://localhost:8081/actuator/health
+git pull && docker-compose down -v && mkdir -p data/database && docker-compose build && docker-compose up -d && sleep 30 && docker-compose ps && curl http://localhost:8080/actuator/health
 ```
 
 ---
@@ -25,7 +25,7 @@ git pull && docker-compose down -v && mkdir -p data/database && docker-compose b
 
 ```
 CONTAINER ID   IMAGE                      PORTS
-abc123         minhavisita-backend:latest 0.0.0.0:8081->8081/tcp
+abc123         minhavisita-backend:latest 0.0.0.0:8080->8080/tcp
 def456         postgres:16-alpine         5432/tcp
 
 {"status":"UP"}
@@ -40,7 +40,7 @@ def456         postgres:16-alpine         5432/tcp
 1. Vá: https://console.cloud.google.com/networking/firewalls
 2. **CREATE FIREWALL RULE**
 3. Name: `allow-minhavisita`
-4. Direction: **Ingress** | Source: `0.0.0.0/0` | TCP: `8081`
+4. Direction: **Ingress** | Source: `0.0.0.0/0` | TCP: `8080`
 5. **CREATE**
 
 ---
@@ -52,7 +52,7 @@ def456         postgres:16-alpine         5432/tcp
 curl -s ifconfig.me
 
 # No navegador:
-http://SEU_IP_RETORNADO:8081
+http://SEU_IP_RETORNADO:8080
 ```
 
 ---

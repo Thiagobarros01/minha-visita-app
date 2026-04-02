@@ -10,7 +10,7 @@ Execute este comando na raiz do projeto, onde fica o `pom.xml`:
 mvn spring-boot:run
 ```
 
-O servidor sobe em `http://localhost:8081`.
+O servidor sobe em `http://localhost:8080`.
 
 Depois, rode o app Flutter em `mobile/` para consumir essa API.
 
@@ -24,7 +24,7 @@ docker compose up -d --build
 
 Isso sobe:
 
-- `backend` (Spring Boot) em `http://localhost:8081`
+- `backend` (Spring Boot) em `http://localhost:8080`
 - `db` (PostgreSQL) em `localhost:5432`
 
 Comandos uteis:
@@ -58,19 +58,19 @@ docker compose down -v
 ## Exemplo rapido (curl)
 
 ```bash
-curl -X POST http://localhost:8081/api/usuarios \
+curl -X POST http://localhost:8080/api/usuarios \
   -H "Content-Type: application/json" \
   -d '{"nome":"Joao","email":"joao@exemplo.com","senha":"123456"}'
 ```
 
 ```bash
-curl -X POST http://localhost:8081/auth/login \
+curl -X POST http://localhost:8080/auth/login \
   -H "Content-Type: application/json" \
   -d '{"email":"joao@exemplo.com","senha":"123456"}'
 ```
 
 ```bash
-curl -X POST http://localhost:8081/api/visitas \
+curl -X POST http://localhost:8080/api/visitas \
   -H "Content-Type: application/json" \
   -d '{
     "usuarioId":1,
@@ -84,7 +84,7 @@ curl -X POST http://localhost:8081/api/visitas \
 ```
 
 ```bash
-curl -X POST http://localhost:8081/api/checkins \
+curl -X POST http://localhost:8080/api/checkins \
   -H "Content-Type: application/json" \
   -d '{
     "visitaId":1,
@@ -95,7 +95,7 @@ curl -X POST http://localhost:8081/api/checkins \
 ```
 
 ```bash
-curl -X POST http://localhost:8081/api/checkins/1/checkout \
+curl -X POST http://localhost:8080/api/checkins/1/checkout \
   -H "Content-Type: application/json" \
   -d '{
     "latitude":-23.5506,

@@ -23,11 +23,11 @@ flutter run
 No `mobile/lib/main.dart` ajuste:
 
 ```
-final _api = ApiClient('http://10.0.2.2:8081');
+final _api = ApiClient('http://10.0.2.2:8080');
 ```
 
-- Android Emulator: `10.0.2.2:8081`
-- iOS Simulator: `http://localhost:8081`
+- Android Emulator: `10.0.2.2:8080`
+- iOS Simulator: `http://localhost:8080`
 - Dispositivo fisico: IP da sua maquina na rede local
 
 ## Permissoes de localizacao

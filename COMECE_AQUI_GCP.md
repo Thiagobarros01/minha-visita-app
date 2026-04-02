@@ -58,7 +58,7 @@ docker-compose logs -f backend
 1. Abra: https://console.cloud.google.com/networking/firewalls
 2. **CREATE FIREWALL RULE**
 3. Name: `allow-minhavisita`
-4. Direction: **Ingress** | Source: `0.0.0.0/0` | TCP: **8081**
+4. Direction: **Ingress** | Source: `0.0.0.0/0` | TCP: **8080**
 5. **CREATE**
 
 ### Via CLI GCP (1 comando)
